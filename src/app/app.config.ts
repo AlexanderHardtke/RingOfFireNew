@@ -23,5 +23,5 @@ export const appConfig: ApplicationConfig = {
   provideDatabase(() => getDatabase()),
   provideClientHydration(),
   provideAnimationsAsync(),
-  provideAnimationsAsync(), provideAnimationsAsync()]
+  provideAnimationsAsync(), provideAnimationsAsync(), provideFirebaseApp(() => initializeApp({"projectId":"ring-of-fire-8165f","appId":"1:802738305174:web:2b6a6bfee4b8c1fadbeab7","storageBucket":"ring-of-fire-8165f.firebasestorage.app","apiKey":"AIzaSyA_ELVJebmoqtZvHh0umqXhVoJOXXSyXtw","authDomain":"ring-of-fire-8165f.firebaseapp.com","messagingSenderId":"802738305174"})), provideFirestore(() => getFirestore())]
 };

@@ -8,6 +8,7 @@ import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { GameInfoComponent } from "../game-info/game-info.component";
+import { Firestore, collection, doc, onSnapshot } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-game',
@@ -17,13 +18,27 @@ import { GameInfoComponent } from "../game-info/game-info.component";
   styleUrl: './game.component.scss'
 })
 export class GameComponent {
+  firestore: Firestore = inject(Firestore);
   pickCardAnimation: boolean = false;
   currentCard: string | undefined = '';
   game!: Game;
   readonly dialog = inject(MatDialog);
+  unsubList;
 
   constructor() {
     this.newGame();
+    this.unsubList = onSnapshot(this.getGameRef(), (list) => {
+      console.log(list);
+    });
+    this.unsubList();
+  }
+
+  getGameRef() {
+    return collection(this.firestore, 'games');
+  }
+
+  getSingleGameRef(colId:string, docId:string) {
+    return doc(collection(this.firestore, colId), docId);
   }
 
   takeCard() {
