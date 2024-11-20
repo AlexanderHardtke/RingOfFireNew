@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Game } from '../../models/game';
 
 @Component({
   selector: 'app-start-screen',
@@ -16,6 +17,8 @@ export class StartScreenComponent {
     /**
      * starts the game
      */
+    let game = new Game();
+    this.addGame(this.game.toJson());
     this.router.navigateByUrl('/game');
   }
 }

@@ -94,7 +94,7 @@ export class GameComponent {
 
   newGame() {
     this.game = new Game;
-    // this.addGame(this.game.toJson());
+    
   }
 
   openDialog(): void {
