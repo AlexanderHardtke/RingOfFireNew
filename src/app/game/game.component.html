@@ -19,6 +19,12 @@
             src="/assets/img/cards/{{ currentCard }}.png">
     </div>
 
+    <!-- <ul>
+        @for (item of items$ | async; track item) {
+          <li>{{ item['game'] }}</li>
+        }
+      </ul> -->
+
 </div>
 
 <app-game-info [card]="currentCard" class="pin-bottom"></app-game-info>
